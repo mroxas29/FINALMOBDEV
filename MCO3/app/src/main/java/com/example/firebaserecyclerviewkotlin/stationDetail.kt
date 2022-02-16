@@ -30,12 +30,13 @@ class stationDetail : AppCompatActivity() {
 
         setContentView(view)
 
+        //Setting textviews from DB
         binding.stationname.setText(intent.getStringExtra("STATIONNAME").toString())
         binding.dieselPrice.setText(intent.getStringExtra("DIESELPRICE").toString())
         binding.unleadedPrice.setText(intent.getStringExtra("UNLEADEDPRICE").toString())
         binding.gasolinePrice.setText(intent.getStringExtra("GASOLINEPRICE").toString())
 
-
+        //Initializing Variables
         stationName = intent.getStringExtra("STATIONNAME").toString()
         dieselPrice = intent.getStringExtra("DIESELPRICE").toString()
         unleadedPrice = intent.getStringExtra("UNLEADEDPRICE").toString()
@@ -44,6 +45,7 @@ class stationDetail : AppCompatActivity() {
         latitude = intent.getStringExtra("LATITUDE").toString()
         gotolocationbtn = binding.gotolocation
 
+        //Opening Maps
         gotolocationbtn.setOnClickListener(){
             val gmmIntentUri =
                 Uri.parse("geo: $longitude,$latitude?q=$stationName")
@@ -55,11 +57,14 @@ class stationDetail : AppCompatActivity() {
         addtoFavorites = binding.addtofavorites
         backtostationlist = binding.backtostationlist
 
+
+        //Back Nav
         backtostationlist.setOnClickListener(){
             var n = Intent(this, StationListActivity::class.java)
             startActivity(n)
             finish()
         }
+        //Adding station to favorites
         addtoFavorites.setOnClickListener(){
             database = FirebaseDatabase.getInstance("https://mobdev-machine-project-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Favorites")
             val station = Station(stationName, dieselPrice,unleadedPrice, gasolinePrice)

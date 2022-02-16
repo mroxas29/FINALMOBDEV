@@ -16,10 +16,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
+        //Initailizing Variables
         recyclerbtn = binding.recyclerviewbtn
         favoritesbtn = binding.favourites
         feedbackbtn = binding.feedbackbtn
+
+        //Go to Station List
         recyclerbtn.setOnClickListener {
 
             var i = Intent(this,StationListActivity::class.java)
@@ -28,13 +30,13 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-
+        //Go to Favorites List
         favoritesbtn.setOnClickListener(){
             var n = Intent(this, FavoritesListActivity::class.java)
             startActivity(n)
             finish()
         }
-
+        //Go to Feedback Activity
         feedbackbtn.setOnClickListener(){
             var n = Intent(this, FeedbackActivity::class.java)
             startActivity(n)

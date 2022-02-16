@@ -9,14 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 class favAdapter (private val stationList : ArrayList<Station>): RecyclerView.Adapter<favAdapter.MyViewHolder>()  {
     private lateinit var mListener:onFavClickListener
 
+    //Inteface for when cardview is clicked
     interface onFavClickListener{
         fun onStationClick(position:Int)
 
     }
 
+    //Initializing Listener
     fun setOnStationClickListener(listener: favAdapter.onFavClickListener){
         mListener = listener
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): favAdapter.MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.station,

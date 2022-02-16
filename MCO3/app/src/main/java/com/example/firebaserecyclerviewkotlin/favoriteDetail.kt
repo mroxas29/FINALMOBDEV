@@ -22,7 +22,8 @@ class favoriteDetail : AppCompatActivity() {
     private lateinit var unleadedPrice:String
     private lateinit var gasolinePrice:String
     lateinit var backtofavlist : Button
-
+    private lateinit var longitude:String
+    private lateinit var latitude:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,20 +32,26 @@ class favoriteDetail : AppCompatActivity() {
 
         setContentView(view)
 
+        //Setting of textviews based on data for db
         binding.stationname.setText(intent.getStringExtra("STATIONNAME").toString())
         binding.dieselPrice.setText(intent.getStringExtra("DIESELPRICE").toString())
         binding.unleadedPrice.setText(intent.getStringExtra("UNLEADEDPRICE").toString())
         binding.gasolinePrice.setText(intent.getStringExtra("GASOLINEPRICE").toString())
 
+        //Initializing Variables
         stationName = intent.getStringExtra("STATIONNAME").toString()
         dieselPrice = intent.getStringExtra("DIESELPRICE").toString()
         unleadedPrice = intent.getStringExtra("UNLEADEDPRICE").toString()
         gasolinePrice = intent.getStringExtra("GASOLINEPRICE").toString()
         gotolocationbtn = binding.gotolocation
+        longitude = intent.getStringExtra("LONGITUDE").toString()
+        latitude = intent.getStringExtra("LATITUDE").toString()
 
+
+        //Opening Maps with station name in queue
         gotolocationbtn.setOnClickListener(){
             val gmmIntentUri =
-                Uri.parse("geo: 14.847578,120.829362?q=$stationName")
+                Uri.parse("geo: $longitude,$latitude?q=$stationName")
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
@@ -53,12 +60,14 @@ class favoriteDetail : AppCompatActivity() {
         removeFromFavorites = binding.deleteFromFavorites
         backtofavlist = binding.backtofavlist
 
+        //Back Nav
         backtofavlist.setOnClickListener(){
             var n = Intent(this, FavoritesListActivity::class.java)
             startActivity(n)
             finish()
         }
 
+        //Remove from favourites
         removeFromFavorites.setOnClickListener(){
             database = FirebaseDatabase.getInstance("https://mobdev-machine-project-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Favorites")
             val station = Station(stationName, dieselPrice,unleadedPrice, gasolinePrice)

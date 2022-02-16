@@ -30,29 +30,33 @@ class FeedbackActivity : AppCompatActivity() {
         feedback = binding.feedback
         name = binding.name
 
+        //Back anv
         backtoHomebtn.setOnClickListener(){
             var i = Intent(this,MainActivity::class.java)
             startActivity(i)
             finish()
         }
 
+        //Send Feedback Button
         sendFeedback.setOnClickListener(){
 
-
+            //If textview is empty
             if(feedback.text.toString() == "" || name.text.toString() == "")
             {
                 Toast.makeText(this, "Please fill up all fields", Toast.LENGTH_SHORT).show()
             }else
             {
+                //getting DB reference
                 database = FirebaseDatabase.getInstance("https://mobdev-machine-project-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Feedbacks")
 
+                //Adding feedback to database
                 database.child(name.text.toString()).setValue(feedback.text.toString()).addOnSuccessListener {
                     Toast.makeText(this, "Thanks for your Feedback!", Toast.LENGTH_SHORT).show()
 
                 }.addOnFailureListener(){
                     Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
                 }
-
+                //Clearing Fields
                 feedback.setText("")
                 name.setText("")
             }

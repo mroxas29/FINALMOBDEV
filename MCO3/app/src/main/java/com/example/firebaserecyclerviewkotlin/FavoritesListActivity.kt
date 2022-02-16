@@ -45,6 +45,7 @@ class FavoritesListActivity : AppCompatActivity() {
 
         backbtn = binding.backbtn
 
+        //back Nav
         backbtn.setOnClickListener(){
             var n = Intent(this, MainActivity::class.java)
             startActivity(n)
@@ -55,11 +56,13 @@ class FavoritesListActivity : AppCompatActivity() {
     }
 
     private fun getStationData() {
-
+        //Getting DB reference
         dbref = FirebaseDatabase.getInstance("https://mobdev-machine-project-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Favorites")
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                //iF data exists
                 if (snapshot.exists()){
+                    //Adding Data to arrayList
                     for (stationSnapshot in snapshot.children){
                         val station = stationSnapshot.getValue(Station::class.java)
                         stationArrayList.add(station!!)
@@ -69,6 +72,7 @@ class FavoritesListActivity : AppCompatActivity() {
                     var adapter = MyAdapter(stationArrayList)
                     stationRecyclerview.adapter = adapter
 
+                    //Passing Intent for other activites
                     adapter.setOnStationClickListener(object: MyAdapter.onStationClickListener{
                         override fun onStationClick(position: Int) {
                             val model = stationArrayList.get(position)

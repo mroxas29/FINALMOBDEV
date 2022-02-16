@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private val stationList : ArrayList<Station>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     private lateinit var mListener:onStationClickListener
+    //Interface for cardview
     interface onStationClickListener{
         fun onStationClick(position:Int)
 
 
     }
 
+    //Initializing listener
     fun setOnStationClickListener(listener: onStationClickListener){
         mListener = listener
     }

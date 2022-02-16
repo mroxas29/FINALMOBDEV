@@ -47,7 +47,7 @@ class StationListActivity : AppCompatActivity() {
         val view = binding.root
 
         setContentView(view)
-
+    //Initializing Variables
         stationRecyclerview = binding.stationList
         stationRecyclerview.layoutManager = LinearLayoutManager(this)
         stationRecyclerview.setHasFixedSize(true)
@@ -57,21 +57,10 @@ class StationListActivity : AppCompatActivity() {
         RequestPermission()
         getLastLocation()
 
-        // Search for restaurants in San Francisco
-/*
-        val gmmIntentUri =
-            Uri.parse("geo: 14.874458,120.820154?q=restaurants")
-        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-        mapIntent.setPackage("com.google.android.apps.maps")
-        startActivity(mapIntent)
-
-
-
-*/
-
 
         backbtn = binding.backbtn
 
+        //Back Nav
         backbtn.setOnClickListener(){
             var n = Intent(this, MainActivity::class.java)
             startActivity(n)
@@ -79,7 +68,7 @@ class StationListActivity : AppCompatActivity() {
         }
     }
 
-
+    //Get Last location and getting coordinates with intent
     private fun getLastLocation(){
         if(checkPermission()){
             if(isLocationEnabled()){
@@ -105,6 +94,7 @@ class StationListActivity : AppCompatActivity() {
         }
     }
 
+    //Converting coordinates to the city you are in
     private fun getCityName(lat: Double,long: Double):String{
         var cityName:String = ""
         var countryName = ""
@@ -120,7 +110,7 @@ class StationListActivity : AppCompatActivity() {
     }
 
 
-
+    //Updating your current coordinate
     fun NewLocationData(){
         var locationRequest =  LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
@@ -167,7 +157,7 @@ class StationListActivity : AppCompatActivity() {
     }
 
 
-
+    //Checking if certain permissions are allowed
     private fun checkPermission():Boolean{
         if(
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
@@ -178,6 +168,7 @@ class StationListActivity : AppCompatActivity() {
         return false
     }
 
+    //Requesting Permissions
     private fun RequestPermission(){
         ActivityCompat.requestPermissions(
             this,
@@ -185,6 +176,7 @@ class StationListActivity : AppCompatActivity() {
         )
     }
 
+    //Checking if location is enabled
     private fun isLocationEnabled():Boolean{
         var locationManager:LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
@@ -203,7 +195,7 @@ class StationListActivity : AppCompatActivity() {
     }
 
 
-
+    //Getting Station data from database
     private fun getStationData() {
 
         dbref = FirebaseDatabase.getInstance("https://mobdev-machine-project-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Stations")
