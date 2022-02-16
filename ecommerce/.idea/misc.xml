@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/activity_cartlist.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/activity_product_detail.xml" value="0.5" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/activity_productlist.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/activity_stationlist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/cart.xml" value="0.215625" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/product.xml" value="0.215625" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master - Copy/app/src/main/res/layout/station.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_favorite_detail.xml" value="0.175" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_favorites_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_feedback.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_station_detail.xml" value="0.33" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_stationlist.xml" value="0.3145833333333333" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/activity_userlist.xml" value="0.12635869565217392" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/favorites.xml" value="0.5" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/station.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/FirebaseRecyclerViewKotlin-master/app/src/main/res/layout/user_item.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
